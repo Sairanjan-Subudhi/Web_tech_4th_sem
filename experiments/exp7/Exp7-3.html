@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="searchApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Filter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        input {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: #e0e0e0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" ng-controller="SearchController">
+    <h2 style="margin-top: 0; color: #007bff;">Search Filter</h2>
+    <input type="text" placeholder="Search" ng-model="searchQuery">
+    <ul>
+        <li ng-repeat="item in items | filter:searchQuery">{{ item }}</li>
+    </ul>
+</div>
+
+<script>
+    angular.module('searchApp', [])
+        .controller('SearchController', function ($scope) {
+            $scope.items = [
+                'Apple',
+                'Banana',
+                'Orange',
+                'Mango',
+                'Pineapple',
+                'Grapes',
+                'Strawberry',
+                'Watermelon'
+            ];
+        });
+</script>
+
+</body>
+</html>

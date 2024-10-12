@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tableApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Table Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background-color: #e0e0e0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .even-row {
+            background-color: #f9f9f9;
+        }
+
+        .odd-row {
+            background-color: #f5f5f5;
+        }
+
+        h2, h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-controller="TableController">
+    <h2>Beautiful AngularJS Table Demo</h2>
+    <table>
+        <thead>
+            <tr>
+                <th ng-click="orderByField('name')">Name</th>
+                <th ng-click="orderByField('age')">Age</th>
+                <th ng-click="orderByField('country')">Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in people | orderBy:orderByField" ng-class="{ 'even-row': $even, 'odd-row': $odd }">
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                <td>{{ person.country }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Table with Even and Odd Styling</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in people" ng-class="{ 'even-row': $even, 'odd-row': $odd }">
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                <td>{{ person.country }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    angular.module('tableApp', [])
+        .controller('TableController', function ($scope) {
+            $scope.people = [
+                { name: 'John', age: 30, country: 'USA' },
+                { name: 'Alice', age: 25, country: 'UK' },
+                { name: 'Bob', age: 35, country: 'Canada' },
+                { name: 'Emily', age: 28, country: 'Australia' },
+                { name: 'David', age: 40, country: 'Germany' }
+            ];
+
+            $scope.orderByField = function(fieldName) {
+                $scope.orderByField = fieldName;
+            };
+        });
+</script>
+
+</body>
+</html>
