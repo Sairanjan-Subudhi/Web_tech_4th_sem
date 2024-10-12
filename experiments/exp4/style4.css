@@ -1,0 +1,225 @@
+body{
+    margin: 0;
+    font-family:'Inter',sans-serif;
+  } 
+  .navbar_about {
+      background: linear-gradient(to right, #d1913c,#ffd194);
+      overflow: hidden;
+      padding-top: 0;
+  }
+  
+  .navbar_about a {
+    float: right;
+    color: black;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px 20px; 
+    font-size: 150%;
+    font-family:'Times New Roman', Times, serif;
+    text-decoration: none;
+  }
+  
+
+
+
+  .box {
+      display: flex;
+  }
+  
+  .info {
+    font-size: medium;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      width: 60%;
+      text-align: left;
+  }
+  
+  .text {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    bottom: 17px;
+    margin-left: 10px;
+  }
+  
+  .text-content {
+      width: 40%; 
+      padding-left: 20px;
+  }
+  .text-content input, .text-content textarea{
+    background-color: #d1913c;
+    width: 100%;
+    height:100%;
+    border-radius: 10px;
+    color: rgb(4, 0, 0);
+  }
+  
+  .rectangle {
+    padding: 5px;
+      width: 80%;
+      height: 20px;
+      margin-bottom: 5%;
+      border-radius: 10px;
+  }
+  
+  .rectangle3 {
+    padding: 5px;
+    background-color:#ffd194;
+    width: 80%;
+    height: 200px;
+    margin-bottom: 5%;
+    border-radius: 10px;
+  }
+  button{
+    align-items: center;
+    height: 40px;
+    font-size:large ;
+    width: 150px;
+    color: #090505;
+    border-color: rgb(255, 255, 255);
+    border-width: 2px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background:linear-gradient(to right, #d1913c,#ffd194 );
+    width: 15%;
+    border-radius: 10%;
+  }
+  
+  .icon{  
+    vertical-align:center;
+    width: 50px;
+    height: 50px;
+    margin-left: 10%;
+    margin-top:3px;
+  } 
+  
+  a:hover {
+    text-decoration: underline;
+    color:rgb(0, 0, 0);
+  }
+  
+  .input-field::placeholder {
+      color: transparent;
+    }
+    .input-field {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid black;
+      padding: 5px;
+      color: rgb(0, 0, 0);
+    }
+    .input-field:focus + .form-label,
+  .input-field:not(:placeholder-shown) + .form-label {
+    transform: translate(5px, 22px);
+    font-size: 14px;
+    color: black;
+    top:-55px;
+  } 
+  
+  .input-field:focus + #message , 
+  .input-field:not(:placeholder-shown) + #message{
+    transform: translate(5px, 22px);
+    top: -240px;
+  }
+  .form-label{
+      position: relative;
+      top:-22px;
+      left: 6px;
+      color: rgb(8, 1, 1);
+      transition: 0.3s;
+      pointer-events: none;
+    }
+    #message{
+      top:-200px;
+    }
+  
+    #sendButton {
+      transition: transform 0.3s ease;
+    }
+  
+    #sendButton:hover {
+      transform: scale(1.2);
+  }
+  
+  #sendButton:active {
+      transform: scale(0.8);
+  }
+  
+  .footer {
+      margin-top: 3px; 
+      background-color:#ffd194;
+      padding: 24px;
+      text-align: center;
+      position: sticky;
+      bottom:0;
+  }
+
+  .sidebar {
+    background: linear-gradient(to right, #d1913c,#ffd194);
+    overflow: hidden;
+    width: 0;
+    text-align: center;
+    position: fixed;
+    height: 100vh;
+    transition: width 0.3s; 
+}
+
+/* Adjust the width on hover to reveal the full content */
+body:hover .sidebar {
+    width: 200px; /* Adjust expanded width as needed */
+}
+
+.sidebar a {
+    color: black;
+    font-weight: 400;
+    padding: 20px 0;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    display: block;
+}
+
+body:hover + .main-content {
+    margin-left:200px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .sidebar {
+    display: none; /* Hide the sidebar on smaller screens */
+}
+
+  .navbar_about a {
+      float: none;
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 15px 0;
+  }
+
+  li{
+    font-size: 10px;
+  }
+
+  .box {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .text-content {
+      width: 100%;
+  }
+
+  .First {
+      position: static;
+      text-align: center;
+      margin-bottom: 20px;
+  }
+
+  .rectangle, .rectangle3 {
+      width: 90%;
+  }
+
+  .details {
+      margin-left: 0;
+  }
+}
