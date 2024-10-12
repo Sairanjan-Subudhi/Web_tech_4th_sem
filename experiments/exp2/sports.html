@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Sports Selection Form</title>
+    <style>
+        /* Basic styling - adjust as needed */
+        form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 75px;
+            margin-bottom: 75px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"], textarea, select{
+            width: 90%; 
+            padding: 8px;
+            margin-bottom: 10px; 
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body style = "background-color: #3a6efd;">
+
+    <form>
+        <h2>Sports Selection Form</h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required> 
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required> 
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4"></textarea> 
+
+        <label for="game">Select Game:</label>
+        <select id="game" name="game">
+            <option value="">--Select--</option>
+            <option value="Cricket">Cricket</option>
+            <option value="football">Football</option>
+            <option value="volleyball">Volleyball</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Table Tennis">Table Tennis</option>
+            <option value="Basketball">Basketball</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="">--Select--</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="18" required placeholder="Age"> 
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

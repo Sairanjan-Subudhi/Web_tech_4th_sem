@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Course Registration</title>
+    <style>
+        /* Basic styling - adjust as needed */
+        form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 75px;
+            margin-bottom: 75px;
+            border: 1px solid #ccc;
+            background-color: #7abac6;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type='number'],input[type='date'],select{
+            width: 90%; 
+            padding: 8px;
+            margin-bottom: 25px; 
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body style = "background-color: #ffffff;">
+
+    <form>
+        <h2>Student Course Registration Form</h2>
+
+        <label for="student_name">Student Name:</label>
+        <input type="text" id="student_name" name="student_name" > 
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" > 
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" > 
+
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" >
+        <option value="">Select</option>
+        <option value="Web Tech">Web Tech</option>
+        <option value="ADBMS">ADBMS</option>
+        <option value="FLAT">FLAT</option>
+        <option value="Devops automation">Devops automation</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
