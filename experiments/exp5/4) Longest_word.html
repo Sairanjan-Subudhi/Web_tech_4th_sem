@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Longest Word Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    #container {
+      width: 80%;
+      margin: 50px auto;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <h2>Longest Word Finder</h2>
+  <input type="text" id="inputString" placeholder="Enter your sentence here">
+  <button type="button" onclick="findLongestWord()">Find Longest Word</button>
+  <p id="result"></p>
+</div>
+
+<script>
+  function findLongestWord() {
+    const inputString = document.getElementById("inputString").value.trim();
+
+    if (!inputString) {
+      alert("Please enter a sentence.");
+      return;
+    }
+
+    const words = inputString.split(/\s+/); /*\s+ matches one or more whitespace characters */
+
+    let longestWord = "";
+    let longestWordLength = 0;
+
+    for (const word of words) {
+      if (word.length > longestWordLength) {
+        longestWord = word;
+        longestWordLength = word.length;
+      }
+    }
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = `The longest word is: "${longestWord}"`;
+  }
+</script>
+</body>
+</html>

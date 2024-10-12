@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capitalize</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px auto;
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 10px auto;
+        display: block;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #output {
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+<script>
+function capitalizeFirstLetterOfEachWord(str) {   
+    return str.replace(/\b\w/g, function(char) {
+
+ /* \b\w matches the first character of each word in the string. The \b ensures that it matches at the beginning of a word, and \w matches any word character.
+ /g ensures that this pattern is applied globally, so it finds all occurrences of the pattern */
+
+        return char.toUpperCase();
+    });
+}
+
+function capitalizeAndDisplay() {
+    let inputText = document.getElementById("inputText").value;
+    let capitalizedText = capitalizeFirstLetterOfEachWord(inputText);
+    document.getElementById("output").innerText = capitalizedText;
+}
+</script>
+</head>
+<body>
+
+<h2>Capitalize first letter of each word</h2>
+
+<input type="text" id="inputText" placeholder="Enter a sentence">
+<button onclick="capitalizeAndDisplay()">Capitalize</button>
+<div id="output"></div>
+
+</body> </html>

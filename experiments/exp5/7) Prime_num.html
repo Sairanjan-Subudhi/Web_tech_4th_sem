@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      margin-left: 4px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="number"] {
+      display: block;
+      margin-bottom: 10px;
+      padding: 5px;
+      width: calc(25% - 5px); 
+      box-sizing: border-box;
+      margin-left:3px ;
+    }
+
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p#result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find Prime Numbers</h1>
+  <label for="lowerLimit">Lower Limit:</label> <br>
+  <input type="number" id="lowerLimit" placeholder="Enter lower limit"> <br>
+  <label for="upperLimit">Upper Limit:</label> <br>
+  <input type="number" id="upperLimit" placeholder="Enter upper limit">
+  <button onclick="findPrimes()">Find Primes</button>
+  <p id="result"></p>
+  <script>
+    function isPrime(num) {
+      if (num <= 1) {
+        return false;
+      }
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function findPrimes() {
+      const lowerLimit = parseInt(document.getElementById("lowerLimit").value);
+      const upperLimit = parseInt(document.getElementById("upperLimit").value);
+      const result = document.getElementById("result");
+
+      result.textContent = "Prime numbers between " + lowerLimit + " and " + upperLimit + " are:";
+
+      for (let i = lowerLimit; i <= upperLimit; i++) {
+        if (isPrime(i)) {
+          result.textContent += " " + i;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

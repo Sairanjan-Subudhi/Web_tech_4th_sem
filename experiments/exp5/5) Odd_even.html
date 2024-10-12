@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odd and Even Numbers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #results {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Finding Odd and Even Numbers</h1>
+  <button onclick="checkNumbers()">Check Numbers</button>
+  <div id="results"></div>
+  <script>
+    function checkNumbers() {
+      const results = document.getElementById("results");
+      results.innerHTML = ""; // Clear previous results
+
+      let evenNumbers = "";
+      let oddNumbers = "";
+
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+          evenNumbers += i + " ";
+        } else {
+          oddNumbers += i + " ";
+        }
+      }
+
+      results.innerHTML = `<h3>Even Numbers:</h3> <p>${evenNumbers}</p> <br> <h3>Odd Numbers:</h3> <p>${oddNumbers}</p>`;
+    }
+  </script>
+</body>
+</html>
