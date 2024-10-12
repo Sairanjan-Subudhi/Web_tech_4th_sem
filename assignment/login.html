@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<style>
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+    
+    body{
+        min-height: 100vh;
+        width: 100%;
+        background: url(2.jpeg);
+        background-color: black;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    
+    form{
+        background: rgba(6, 1, 30,0.2);
+        width: 500px;
+        height: 550px;
+        padding: 80px 50px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 3%;
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.692);
+        
+    }
+    
+    h1 {
+         text-align: center;
+         margin-right: 45px;
+         color: white;
+         font-size: 40px;
+    }
+    
+    .text{
+        border-bottom: 2px solid white;
+        position: relative;
+        margin: 35px 0;
+    }
+    
+    .text input{
+        background: none;
+        border: none;
+        outline: none;
+        width: 100;
+        color: white;
+        height: 30px;
+        font-size: 20px;
+    }
+    .login{
+        height: 45px;
+        width: 100%;
+        border: none;
+        background-size: 200% ;
+        font-size: 16px;
+        border-radius: 3%;
+        font-family:Verdana, Geneva, Tahoma, sans-serif, Arial, sans-serif;
+    }
+    
+    .login:hover{
+        background-position: right;
+        font-size: 18px;
+        background: orangered;
+    }
+    .su{
+        color: white;
+        text-align: center;
+    }
+    
+    .header{
+        min-height: 100vh;
+        width: 100%;
+        background-image: url(1.jpeg);
+        background-color: black;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+    }
+    nav{
+        display: flex;
+        padding: 2% 6%;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    
+    .navbar{
+        flex: 1;
+        text-align: right;
+    }
+    .navbar ul li {
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+    
+    }
+    
+    .navbar ul li a {
+        color: white ;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    
+    .navbar ul li::after{
+        content: '';
+        width: 0% ;
+        height: 2px ;
+        background: rgb(54, 183, 209);
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+</style>
+<body>
+    <section class="header">
+        <nav>
+            <div class="navbar" id="navbar">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="/signin">Login</a></li>
+                </ul>
+            </div>
+        </nav>	  
+    </section>
+    <form id="loginForm">
+        <h1>Login</h1>
+        <div class="text">
+            <input type="text" id="username" name="username" placeholder="Username"> 
+        </div>
+        <div class="text">
+            <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+        <input type="button" value="Login" class="login" onclick="validateLogin()">
+        <br><br>
+        <div class="su">
+            Don't have an account?
+            <br>
+            <a href="signup.html">Sign up</a>
+        </div>
+    </form>
+    
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username.trim() === '' || password.trim() === '') {
+                alert("Please enter both username and password.");
+                return;
+            }
+
+            //confirm dialog for login confirmation
+            var confirmed = confirm("Are you sure you want to login?");
+            if (confirmed) {
+                //prompt dialog to verify login
+                var loginConfirmation = prompt("Please type 'yes' to confirm.");
+                if (loginConfirmation === 'yes') {
+                    document.getElementById("loginForm").submit();
+                } else {
+                    return;
+                }
+            } else {
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
